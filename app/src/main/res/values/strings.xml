@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FuelPrice</string>
+    <string name="app_logo">App Logo</string>
+    <string name="saiba_a_melhor_op_o_de_abastecimento_para_seu_carro">Saiba a melhor opção de abastecimento para seu carro</string>
+    <string name="alcohol">Alcohol</string>
+    <string name="gasoline">Gasoline</string>
+    <string name="calculate">CALCULATE</string>
+    <string name="textview">TextView</string>
+</resources>
