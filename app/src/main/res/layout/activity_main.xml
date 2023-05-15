@@ -6,11 +6,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:fillViewport="true">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".MainActivity"
-        android:layout_margin="32dp">
+        android:layout_gravity="center_vertical"
+        android:layout_margin="32dp"
+        tools:context=".MainActivity">
 
         <ImageView
             android:id="@+id/imageViewLogo"
@@ -35,13 +37,13 @@
             app:layout_constraintTop_toBottomOf="@+id/imageViewLogo" />
 
         <EditText
-            android:id="@+id/editTextNumber"
+            android:id="@+id/editTextNumberAlcohol"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:autofillHints="Fuel Alcohol number text field"
             android:ems="10"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:minHeight="48dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -54,22 +56,22 @@
             android:layout_height="wrap_content"
             android:text="@string/alcohol"
             android:textSize="12sp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextNumber"
+            app:layout_constraintBottom_toTopOf="@+id/editTextNumberAlcohol"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/editTextNumber2"
+            android:id="@+id/editTextNumberGas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:ems="10"
-            android:inputType="number"
+            android:importantForAutofill="no"
+            android:inputType="numberDecimal"
             android:minHeight="48dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextNumber"
-            tools:ignore="LabelFor,SpeakableTextPresentCheck,VisualLintTextFieldSize"
-            android:importantForAutofill="no" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextNumberAlcohol"
+            tools:ignore="LabelFor,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
 
         <TextView
             android:id="@+id/textView3"
@@ -77,7 +79,7 @@
             android:layout_height="wrap_content"
             android:text="@string/gasoline"
             android:textSize="12sp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextNumber2"
+            app:layout_constraintBottom_toTopOf="@+id/editTextNumberGas"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
@@ -90,7 +92,7 @@
             app:layout_constraintBottom_toTopOf="@+id/textViewConfirmation"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextNumber2"
+            app:layout_constraintTop_toBottomOf="@+id/editTextNumberGas"
             tools:ignore="MissingConstraints,VisualLintButtonSize" />
 
         <TextView
@@ -100,10 +102,12 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="170dp"
             android:text="@string/textview"
+            android:textSize="25sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/buttonCalculate" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
 
