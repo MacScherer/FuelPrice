@@ -1,21 +1,19 @@
 package com.example.fuelprice;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.google.android.material.textfield.TextInputEditText;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     private EditText editTextAlcohol;
     private EditText editTextGasoline;
     private TextView textViewResult;
-    private Button buttonCalculate;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,28 +22,25 @@ public class MainActivity extends AppCompatActivity {
         editTextAlcohol = findViewById(R.id.editTextNumberAlcohol);
         editTextGasoline = findViewById(R.id.editTextNumberGas);
         textViewResult = findViewById(R.id.textViewConfirmation);
-        buttonCalculate = findViewById(R.id.buttonCalculate);
+        Button buttonCalculate = findViewById(R.id.buttonCalculate);
 
-        buttonCalculate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String priceAlcohol = editTextAlcohol.getText().toString();
-                String priceGasoline = editTextGasoline.getText().toString();
+        buttonCalculate.setOnClickListener(v -> {
+            String priceAlcohol = editTextAlcohol.getText().toString();
+            String priceGasoline = editTextGasoline.getText().toString();
 
-                boolean booleanValidation = verifyField(priceAlcohol, priceGasoline);
-                if (booleanValidation == true){
-                    Double priceAlcoholDouble = Double.parseDouble(priceAlcohol);
-                    Double priceGasDouble = Double.parseDouble(priceGasoline);
+            boolean booleanValidation = verifyField(priceAlcohol, priceGasoline);
+            if (booleanValidation){
+                Double priceAlcoholDouble = Double.parseDouble(priceAlcohol);
+                Double priceGasDouble = Double.parseDouble(priceGasoline);
 
-                    Double resultValue = priceAlcoholDouble / priceGasDouble;
-                    if (resultValue >= 0.7){
-                        textViewResult.setText("Better use Gas.");
-                    }else {
-                        textViewResult.setText("Better use alcohol.");
-                    }
+                double resultValue = priceAlcoholDouble / priceGasDouble;
+                if (resultValue >= 0.7){
+                    textViewResult.setText("Better use Gas.");
                 }else {
-                    textViewResult.setText("Type at the fields first!");
+                    textViewResult.setText("Better use alcohol.");
                 }
+            }else {
+                textViewResult.setText("Type at the fields first!");
             }
         });
     }
